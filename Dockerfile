@@ -6,6 +6,4 @@ RUN apt-get update && \
 
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
-ENV OLLAMA_HOST=0.0.0.0
-
-CMD ["sh", "-c", "ollama serve --host 0.0.0.0 --port ${PORT}"]
+CMD ["sh", "-c", "OLLAMA_HOST=0.0.0.0:$PORT ollama serve"]
