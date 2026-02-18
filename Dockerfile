@@ -9,7 +9,8 @@ RUN apt-get update && \
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # Pull small model during build
-RUN ollama serve & sleep 10 && ollama pull phi
+RUN ollama serve & sleep 10 && ollama pull tinyllama
+
 
 # Start Ollama on Render dynamic port
 CMD ["sh", "-c", "OLLAMA_HOST=0.0.0.0:$PORT ollama serve"]
